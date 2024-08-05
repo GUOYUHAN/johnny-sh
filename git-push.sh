@@ -1,17 +1,17 @@
 #!/bin/bash
 
 # 当任何一行命令执行失败时，脚本立即退出
-set -e
+# set -e
 
 # 先添加所有更改到暂存区
 git add .
 
 # 提示用户输入commit信息
-echo -e "\e[32m\e[1m请输入commit信息："
-read commitMessage
-echo -e "\e[32m\e[1m正在commit..."
+echo -e "\e[32m\e[1m请输入commit信息：\e[0m"
+IFS= read -r commitMessage
+echo -e "\e[32m\e[1m正在commit...\e[0m"
 
-# 执行commit操作
+# 执行commit操作=
 git commit -m "$commitMessage"
 
 # 获取本地分支列表
@@ -21,7 +21,9 @@ git commit -m "$commitMessage"
 currentBranch=$(git rev-parse --abbrev-ref HEAD)
 
 # 直接推送当前分支
+echo
 echo -e "\e[32m\e[1m正在推送分支：\e[0m\e[1m\e[42m$currentBranch\e[0m\e[1m\e[32m..."
+echo
 git push origin "$currentBranch"
 
 echo -e "\e[32m\e[1m ______    __    __     _____    _____     _____   ______   ______  
@@ -31,7 +33,6 @@ echo -e "\e[32m\e[1m ______    __    __     _____    _____     _____   ______   
  _\ \ \    \ \  / /   \ \ \_   \ \ \_    / /__/_   _\ \ \   _\ \ \  
 )____) )   ( (__) )    ) )__/\  ) )__/\ ( (_____\ )____) ) )____) ) 
 \____\/     \/__\/     \/___\/  \/___\/  \/_____/ \____\/  \____\/  
-                                                                    
 \e[0m"
 
 # # 从分支列表中选择要推送的分支
