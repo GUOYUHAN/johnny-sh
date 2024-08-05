@@ -20,7 +20,7 @@ alias gp='git push'
 alias gl='git pull'
 alias gs='git status'
 
-alias gcsh='/Users/guoyuhan/scripts_johnny/git-checkout.sh'
-alias gpsh='/Users/guoyuhan/scripts_johnny/git-push.sh'
+alias gcsh='. /Users/guoyuhan/scripts_johnny/git-checkout.sh'
+alias gpsh='. /Users/guoyuhan/scripts_johnny/git-push.sh'
 
 ssh-add ~/.ssh/id_rsa_github
