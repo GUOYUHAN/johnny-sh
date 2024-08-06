@@ -9,9 +9,9 @@ git add .
 # 提示用户输入commit信息
 echo -e "\e[32m\e[1m请输入commit信息：\e[0m"
 IFS= read -r commitMessage
-echo -e "\e[32m\e[1m正在commit...\e[0m"
+echo -e "\e[32m\e[1m正在git commit -m $commitMessage...\e[0m"
 
-# 执行commit操作=
+# 执行commit操作
 git commit -m "$commitMessage"
 
 # 获取本地分支列表
