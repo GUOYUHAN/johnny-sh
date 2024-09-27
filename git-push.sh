@@ -12,7 +12,7 @@ IFS= read -r commitMessage
 echo -e "\e[32m\e[1m正在git commit -m $commitMessage...\e[0m"
 
 # 执行commit操作
-git commit -m "$commitMessage" || { echo "\e[31m\e[1mgit commit 失败，脚本退出\e[0m"; exit 1; }
+git commit -m "$commitMessage" || { echo "\e[31m\e[1mgit commit 失败，按任意键继续或ctrl+C结束脚本\e[0m"; read -n 1; }
 
 # 获取本地分支列表
 # branches=$(git branch | cut -c 3-)
@@ -24,7 +24,7 @@ currentBranch=$(git rev-parse --abbrev-ref HEAD)
 echo
 echo -e "\e[32m\e[1m正在推送分支：\e[0m\e[1m\e[42m$currentBranch\e[0m\e[1m\e[32m..."
 echo
-git push origin "$currentBranch" || { echo "\e[31m\e[1mgit push 失败，脚本退出\e[0m"; exit 1; }
+git push origin "$currentBranch" || { echo "\e[31m\e[1mgit push 失败，请ctrl+C结束脚本\e[0m"; read -n 1; }
 
 echo -e "\e[32m\e[1m ______    __    __     _____    _____     _____   ______   ______  
 / ____/\  /\_\  /_/\   /\ __/\  /\ __/\  /\_____\ / ____/\ / ____/\ 
